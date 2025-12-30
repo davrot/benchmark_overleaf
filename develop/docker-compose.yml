@@ -124,7 +124,7 @@ services:
       - dev.env
 
   redis:
-    image: redis:7.4-alpine
+    image: redis:8.4
     ports:
       - "127.0.0.1:6379:6379" # for debugging
     volumes:
