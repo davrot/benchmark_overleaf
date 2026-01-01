@@ -1,7 +1,7 @@
 import Path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { Project } from '../../../../app/src/models/Project.mjs'
-import { User } from '../../../../app/src/models/User.js'
+import { User } from '../../../../app/src/models/User.mjs'
 import DocumentUpdaterHandler from '../../../../app/src/Features/DocumentUpdater/DocumentUpdaterHandler.mjs'
 import ProjectZipStreamManager from '../../../../app/src/Features/Downloads/ProjectZipStreamManager.mjs'
 import ProjectDeleter from '../../../../app/src/Features/Project/ProjectDeleter.mjs'
