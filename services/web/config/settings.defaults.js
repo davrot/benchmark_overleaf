@@ -995,7 +995,12 @@ module.exports = {
     diagnosticActions: [],
     sourceEditorCompletionSources: [],
     sourceEditorSymbolPalette: [],
-    sourceEditorToolbarComponents: [],
+    sourceEditorToolbarComponents: [
+        Path.resolve(
+            __dirname,
+            '../modules/latex-editor/frontend/components/latex-editor-toolbar-button'
+        ),
+    ],
     sourceEditorToolbarEndButtons: [],
     rootContextProviders: [],
     mainEditorLayoutModals: [],
@@ -1051,6 +1056,7 @@ module.exports = {
     'history-v1',
     'launchpad',
     'server-ce-scripts',
+    'latex-editor',
     'user-activate',
   ],
   viewIncludes: {},
