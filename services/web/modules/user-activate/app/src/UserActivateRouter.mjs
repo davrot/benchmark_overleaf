@@ -21,10 +21,25 @@ export default {
       AuthorizationMiddleware.ensureUserIsSiteAdmin,
       UserActivateController.registerNewUser
     )
+
     webRouter.post(
       '/admin/register',
       AuthorizationMiddleware.ensureUserIsSiteAdmin,
       UserActivateController.register
+    )
+
+    // Toggle admin status
+    webRouter.post(
+      '/admin/user/:userId/admin',
+      AuthorizationMiddleware.ensureUserIsSiteAdmin,
+      UserActivateController.toggleAdminStatus
+    )
+
+    // Use POST instead of DELETE for better CSRF compatibility
+    webRouter.post(
+      '/admin/user/:userId/delete',
+      AuthorizationMiddleware.ensureUserIsSiteAdmin,
+      UserActivateController.deleteUser
     )
   },
 }

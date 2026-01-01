@@ -1052,6 +1052,7 @@ module.exports = {
     'launchpad',
     'server-ce-scripts',
     'user-activate',
+    'admin-project-list',
   ],
   viewIncludes: {},
 
