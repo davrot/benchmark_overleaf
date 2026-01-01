@@ -32,6 +32,7 @@ import { CommandRegistryProvider } from './command-registry-context'
 import { NewEditorTourProvider } from '@/features/ide-redesign/contexts/new-editor-tour-context'
 import { EditorSelectionProvider } from '@/shared/context/editor-selection-context'
 import importOverleafModules from '../../../../macros/import-overleaf-module.macro'
+import ReferencePickerController from '@/features/ide-react/references/reference-picker-controller'
 
 const rootContextProviders = importOverleafModules('rootContextProviders') as {
   import: { default: ElementType }
@@ -127,6 +128,7 @@ export const ReactContextRoot: FC<
                                                                     {
                                                                       childrenWrappedWithDynamicProviders
                                                                     }
+                                                                    <ReferencePickerController />
                                                                   </Providers.EditorSelectionProvider>
                                                                 </Providers.CommandRegistryProvider>
                                                               </Providers.OutlineProvider>

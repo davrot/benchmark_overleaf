@@ -194,6 +194,7 @@
     "xml2js": "^0.6.2",
     "xregexp": "^4.3.0",
     "yauzl": "^2.10.0",
+    "fuse.js": "^7.0.0",
     "zod": "^4.0.17",
     "zod-validation-error": "^4.0.1"
   },
