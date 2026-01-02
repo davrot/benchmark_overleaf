@@ -100,6 +100,7 @@ function PdfLogEntry({
         logType={logType}
         showSourceLocationLink={showSourceLocationLink}
         onSourceLocationClick={handleLogEntryLinkClick}
+        logEntry={logEntry}
       />
 
       {(rawContent || formattedContent || showAiErrorAssistant) && (
