@@ -97,6 +97,7 @@ const AuthenticationController = {
       analyticsId: user.analyticsId || user._id,
       alphaProgram: user.alphaProgram || undefined, // only store if set
       betaProgram: user.betaProgram || undefined, // only store if set
+      externalAuth: user.externalAuth || false,
     }
     if (user.isAdmin) {
       lightUser.isAdmin = true
