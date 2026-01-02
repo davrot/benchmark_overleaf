@@ -64,11 +64,6 @@
             ]
         },
         {
-            "name": "clone3",
-            "action": "SCMP_ACT_ERRNO",
-            "errnoRet": 38
-        },
-        {
             "name": "close",
             "action": "SCMP_ACT_ALLOW",
             "args": []
@@ -449,11 +444,6 @@
             "args": []
         },
         {
-            "name": "openat2",
-            "action": "SCMP_ACT_ALLOW",
-            "args": []
-        },
-        {
             "name": "pause",
             "action": "SCMP_ACT_ALLOW",
             "args": []
@@ -659,11 +649,6 @@
             "args": []
         },
         {
-            "name": "statx",
-            "action": "SCMP_ACT_ALLOW",
-            "args": []
-        },
-        {
             "name": "stat64",
             "action": "SCMP_ACT_ALLOW",
             "args": []
@@ -844,13 +829,34 @@
             "args": []
         },
         {
-          "name": "gettimeofday",
-          "action": "SCMP_ACT_ALLOW",
-          "args": []
-        }, {
-          "name": "epoll_pwait",
-          "action": "SCMP_ACT_ALLOW",
-          "args": []
+            "name": "gettimeofday",
+            "action": "SCMP_ACT_ALLOW",
+            "args": []
+        },
+        {
+            "name": "epoll_pwait",
+            "action": "SCMP_ACT_ALLOW",
+            "args": []
+        },
+        {
+            "name": "poll",
+            "action": "SCMP_ACT_ALLOW",
+            "args": []
+        },
+        {
+            "name": "openat2",
+            "action": "SCMP_ACT_ALLOW",
+            "args": []
+        },
+        {
+            "name": "statx",
+            "action": "SCMP_ACT_ALLOW",
+            "args": []
+        },
+        {
+            "name": "clone3",
+            "action": "SCMP_ACT_ALLOW",
+             "args": []
         }
     ]
 }
