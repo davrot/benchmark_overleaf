@@ -16,7 +16,11 @@ echo "I am using the username ${username}"
 
 # Clone projects list
 \rm -rf ./projects
-GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${GITBACKUP_SSH_PORT} -i ${DOWNLOADS_DIR}/${username}/.ssh/overleafcep" git clone ssh://${username}@localhost/projects.git
+\rm -f ./overleafcep
+sudo cp ${DOWNLOADS_DIR}/${username}/.ssh/overleafcep .
+sudo chown ubuntu ./overleafcep
+
+GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${GITBACKUP_SSH_PORT} -i ./overleafcep" git clone ssh://${username}@localhost/projects.git
 
 # File path
 FILE="projects/projects.txt"
