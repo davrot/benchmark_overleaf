@@ -2,7 +2,7 @@
 # Gitbackup configuration
 # This file is sourced by test scripts to find paths dynamically
 
-DOCKER_BASE="/data_1/docker/compose_cep/overleafserver/"
+DOCKER_BASE="/workspace/production/overleafserver/"
 
 # Compose file location
 COMPOSE_FILE="${DOCKER_BASE}compose.yaml"
@@ -11,7 +11,7 @@ COMPOSE_FILE="${DOCKER_BASE}compose.yaml"
 DOWNLOADS_DIR="${DOCKER_BASE}data_gitbackup/downloads"
 
 # SSH port for gitbackup
-GITBACKUP_SSH_PORT="22"
+GITBACKUP_SSH_PORT="22123"
 
 # Overleaf container name (can be read from compose file)
 if [ -f "${COMPOSE_FILE}" ]; then
