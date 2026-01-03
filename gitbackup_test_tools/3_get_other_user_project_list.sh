@@ -43,5 +43,5 @@ fi
 # Output the UUID
 echo "Clone the first project ${first_uuid}"
 \rm -rf ./${first_uuid}
-GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${GITBACKUP_SSH_PORT} -i ${DOWNLOADS_DIR}/${username}/.ssh/overleafcep" git clone ssh://${username}@localhost/${first_uuid}.git
+GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${GITBACKUP_SSH_PORT} -i ./overleafcep" git clone ssh://${username}@localhost/${first_uuid}.git
 
