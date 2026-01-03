@@ -80,7 +80,6 @@ RUN cd /etc/skel/usr/lib/git-core && \
 COPY gitbackup/sshd_config /etc/ssh/sshd_config
 COPY gitbackup/rush.rc /etc/rush.rc
 
-RUN chown root:root /etc/rush.rc && chmod 600 /etc/rush.rc
 
 # Copy scripts to root directory
 COPY gitbackup/pre-rush.sh /pre-rush.sh

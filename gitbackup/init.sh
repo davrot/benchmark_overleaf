@@ -31,6 +31,8 @@ export OVERLEAF_MONGO_URL="$OVERLEAF_MONGO_URL"
 export OVERLEAF_CONTAINER_NAME="$OVERLEAF_CONTAINER_NAME"
 EOF
 
+chown root:root /etc/rush.rc
+chmod 600 /etc/rush.rc
 
 # Start services
 /usr/sbin/syslogd -n &
