@@ -6,7 +6,7 @@ import { User } from '../../../../../app/src/models/User.mjs'
 
 const OIDCAuthenticationManager = {
   async findOrCreateUser(profile, auditLog) {
-    console.log('DEBUG - Full profile object:', JSON.stringify(profile, null, 2));
+    // console.log('DEBUG - Full profile object:', JSON.stringify(profile, null, 2));
     const {
       attUserId,
       attAdmin,
@@ -15,8 +15,8 @@ const OIDCAuthenticationManager = {
       providerId,
     } = Settings.oidc
 
-    console.log('DEBUG - attAdmin:', attAdmin, 'valAdmin:', valAdmin);
-    console.log('DEBUG - profile[attAdmin]:', profile[attAdmin]);
+    // console.log('DEBUG - attAdmin:', attAdmin, 'valAdmin:', valAdmin);
+    // console.log('DEBUG - profile[attAdmin]:', profile[attAdmin]);
 
     const email = profile.emails[0].value
     const oidcUserId = (attUserId === 'email') ? email : profile[attUserId]

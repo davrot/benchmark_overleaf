@@ -6,6 +6,7 @@ import UserController from '../../../../../app/src/Features/User/UserController.
 import ThirdPartyIdentityManager from '../../../../../app/src/Features/User/ThirdPartyIdentityManager.mjs'
 import OIDCAuthenticationManager from './OIDCAuthenticationManager.mjs'
 import { acceptsJson } from '../../../../../app/src/infrastructure/RequestContentTypeDetection.mjs'
+import jwt from 'jsonwebtoken'
 
 const OIDCAuthenticationController = {
   passportLogin(req, res, next) {
@@ -27,7 +28,7 @@ const OIDCAuthenticationController = {
           const logoutUrl = process.env.OVERLEAF_OIDC_LOGOUT_URL
           const redirectUri = `${Settings.siteUrl.replace(/\/+$/, '')}/user/settings`
           return res.redirect(`${logoutUrl}?id_token_hint=${info.idToken}&post_logout_redirect_uri=${encodeURIComponent(redirectUri)}`)
-	}
+    }
         if (user) {
           req.session.idToken = info.idToken
           user.externalAuth = 'oidc'
@@ -55,6 +56,26 @@ const OIDCAuthenticationController = {
     )(req, res, next)
   },
   async doPassportLogin(req, issuer, profile, context, idToken, accessToken, refreshToken, done) {
+    // Decode ID token to extract custom claims (like is_admin)
+    // that passport-openidconnect doesn't include in the profile object
+    try {
+      const decoded = jwt.decode(idToken)
+      if (decoded) {
+        // Add any custom claims from the ID token to the profile
+        // This allows Overleaf to access provider-specific fields
+        for (const [key, value] of Object.entries(decoded)) {
+          // Only add custom claims, skip standard OIDC claims already in profile
+          if (!['iss', 'sub', 'aud', 'exp', 'iat', 'auth_time', 'nonce', 'acr', 
+                'amr', 'azp', 'at_hash', 'c_hash'].includes(key) &&
+              !profile[key]) {
+            profile[key] = value
+          }
+        }
+      }
+    } catch (error) {
+      logger.warn({ error }, 'Failed to decode ID token for custom claims')
+    }
+
     let user, info
     try {
       if(req.session.intent === 'link') {
@@ -151,7 +172,7 @@ const OIDCAuthenticationController = {
           type: 'error',
           text: 'Can not unlink account',
           status: 200,
-	}
+    }
       }
     }
   },
