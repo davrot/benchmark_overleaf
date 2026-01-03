@@ -235,6 +235,8 @@ export const UserSchema = new Schema(
     analyticsId: { type: String },
     completedTutorials: Schema.Types.Mixed,
     suspended: { type: Boolean },
+    sshPublicKey: { type: String, default: "" },
+    sshPrivateKey: { type: String, default: "" },
     dsMobileApp: {
       subscribed: { type: Boolean },
     },
